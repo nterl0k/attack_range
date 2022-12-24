@@ -42,4 +42,12 @@ config.vm.define "ar-linux-{{config.general.key_name}}-{{config.general.attack_r
       vb.customize ["modifyvm", :id, "--memory", "2048"]
       vb.customize ["modifyvm", :id, "--cpus", "1"]
     end
+
+    config.vm.provider "vmware_desktop" do |v, override|
+      v.vmx["displayname"] = "{{ server.hostname }}"
+      v.memory = 2048
+      v.cpus = 1
+      v.gui = true
+    end
+
   end
