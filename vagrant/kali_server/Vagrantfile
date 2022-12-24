@@ -13,4 +13,12 @@ config.vm.define "ar-kali-{{config.general.key_name}}-{{config.general.attack_ra
       vb.customize ["modifyvm", :id, "--memory", "2048"]
       vb.customize ["modifyvm", :id, "--cpus", "1"]
     end
+
+    config.vm.provider "vmware_desktop" do |v, override|
+      v.vmx["displayname"] = "#{VM_NAME_KALI}"
+      v.memory = 2048
+      v.cpus = 1
+      v.gui = true
+    end
+
   end
