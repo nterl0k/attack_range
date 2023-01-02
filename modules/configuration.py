@@ -195,7 +195,7 @@ starting configuration for AT-ST mech walker
         {
             # get provider
             'type': 'select',
-            'message': 'select cloud provider',
+            'message': 'select provider',
             'name': 'provider',
             'choices': ['aws','azure', 'local'],
             'default': 'aws'
