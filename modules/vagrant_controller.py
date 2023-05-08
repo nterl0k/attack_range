@@ -47,7 +47,8 @@ class VagrantController(AttackRangeController):
         
         v1 = vagrant.Vagrant('vagrant/', quiet_stdout=False, quiet_stderr=False)
         try:
-            v1.up(provision=True, provider="virtualbox")
+            v1.up(provision=True, provider=self.config['general']['local_provider'])
+            print("Local provisioning with " + self.config['general']['local_provider'])
         except:
             self.logger.error("vagrant failed to build")
             sys.exit(1)
