@@ -61,4 +61,13 @@ config.vm.define "ar-win-{{config.general.key_name}}-{{config.general.attack_ran
       vb.customize ["modifyvm", :id, "--clipboard", "bidirectional"]
       vb.customize ["setextradata", "global", "GUI/SuppressMessages", "all" ]
     end
+
+    config.vm.provider "vmware_desktop" do |v, override|
+      v.vmx["displayname"] = "{{ server.hostname }}"
+      v.memory = 2048
+      v.cpus = 1
+      v.gui = true
+    end
+
+
   end
