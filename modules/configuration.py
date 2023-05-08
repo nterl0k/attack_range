@@ -195,7 +195,7 @@ starting configuration for AT-ST mech walker
         {
             # get provider
             'type': 'select',
-            'message': 'select cloud provider',
+            'message': 'select a provider',
             'name': 'provider',
             'choices': ['aws','azure', 'local'],
             'default': 'aws'
@@ -398,6 +398,22 @@ starting configuration for AT-ST mech walker
         configuration['general']['ip_whitelist'] = answers['ip_whitelist']
         configuration['general']['attack_range_name'] = answers['attack_range_name']
 
+        if configuration['general']['cloud_provider'] == 'local':
+        questions = [
+            {   
+            # get local provider
+            'type': 'select',
+            'message': 'select local provider',
+            'name': 'local_provider',
+            'choices': ['virtualbox','vmware_desktop'],
+            'default': 'virtualbox'
+            },
+        ]
+
+        # check for available local providers
+        answers = questionary.prompt(questions)
+        configuration['general']['local_provider'] = answers['local_provider']
+        
     print("> configuring attack_range environment")
 
     questions = [
