@@ -1,5 +1,5 @@
 config.vm.define "ar-win-{{config.general.key_name}}-{{config.general.attack_range_name}}-{{count}}" do |config|
-    config.vm.box = "d1vious/windows2016"
+    config.vm.box = "splunk_attack_range/windows_server2016"
     config.vm.hostname = "{{ server.hostname }}"
     config.vm.boot_timeout = 600
     config.vm.communicator = "winrm"
