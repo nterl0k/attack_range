@@ -29,4 +29,13 @@ config.vm.define "ar-phantom-{{config.general.key_name}}-{{config.general.attack
       vb.customize ["modifyvm", :id, "--memory", "4096"]
       vb.customize ["modifyvm", :id, "--cpus", "4"]
     end
+
+    config.vm.provider "vmware_desktop" do |v, override|
+      v.vmx["displayname"] = "#{VM_NAME_P}"
+      v.memory = 4096
+      v.cpus = 4
+      v.gui = true
+    end
+
+
   end
